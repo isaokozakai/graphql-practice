@@ -9,7 +9,7 @@ const app = express();
 // allow cross-origin requests
 app.use(cors());
 
-mongoose.connect('mongodb+srv://taskapp:taskapppassword@cluster0-ff93x.mongodb.net/test',
+mongoose.connect('mongodb+srv://isao:isao@cluster0-ff93x.mongodb.net/test',
   { useNewUrlParser: true }
 );
 mongoose.connection.once('open', () => {
@@ -21,6 +21,4 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true
 }));
 
-app.listen(4000, () => {
-  console.log('now listening for requests on port 4000');
-})
+module.exports = app;
