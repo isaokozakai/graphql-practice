@@ -81,7 +81,7 @@ const RootQuery = new GraphQLObjectType({
       }
     }
   }
-})
+});
 
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
@@ -104,8 +104,8 @@ const Mutation = new GraphQLObjectType({
       type: BookType,
       args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
-        genre: { type:  new GraphQLNonNull(GraphQLString) },
-        authorId: { type:  new GraphQLNonNull(GraphQLID) }
+        genre: { type: new GraphQLNonNull(GraphQLString) },
+        authorId: { type: new GraphQLNonNull(GraphQLID) }
       },
       resolve(parent, args) {
         let book = new Book({
@@ -119,12 +119,12 @@ const Mutation = new GraphQLObjectType({
     deleteBook: {
       type: BookType,
       args: { id: { type: GraphQLID } },
-      resolve (parent, args) {
+      resolve(parent, args) {
         return Book.findOneAndDelete({ _id: args.id })
       }
     }
   }
-})
+});
 
 module.exports = new GraphQLSchema({
   query: RootQuery,

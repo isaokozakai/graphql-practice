@@ -13,11 +13,11 @@ function App() {
     <ApolloProvider client={client}>
       <div id="main">
         <h1>GraphQL Practice</h1>
-        <BookList/>
-        <AddBook/>
+        <BookList />
+        <AddBook />
       </div>
     </ApolloProvider>
   );
-}
+};
 
 export default App;

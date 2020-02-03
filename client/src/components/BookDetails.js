@@ -1,11 +1,11 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
-import { getBookQuery } from '../queries/queries'
+import { getBookQuery } from '../queries/queries';
 
 function BookDetails(props) {
   const displayBookDetails = () => {
     const { book } = props.data;
-    console.log(book)
+    console.log(book);
     if (book) {
       return (
         <div>
@@ -23,15 +23,15 @@ function BookDetails(props) {
     } else {
       return (
         <div>No book selected...</div>
-      )
+      );
     }
-  }
+  };
   return (
     <div id='book-details'>
       {displayBookDetails()}
     </div>
   );
-}
+};
 
 export default graphql(getBookQuery, {
   options: (props) => {
@@ -39,6 +39,6 @@ export default graphql(getBookQuery, {
       variables: {
         id: props.bookId
       }
-    }
+    };
   }
 })(BookDetails);

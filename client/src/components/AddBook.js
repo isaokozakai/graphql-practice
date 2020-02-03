@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { graphql, compose } from 'react-apollo';
-import { getAuthorsQuery, addBookMutation, getBooksQuery } from '../queries/queries'
+import { getAuthorsQuery, addBookMutation, getBooksQuery } from '../queries/queries';
 
 function AddBook(props) {
   const [name, setName] = useState('');
@@ -13,10 +13,10 @@ function AddBook(props) {
     } else {
       return data.authors.map(author => (
         <option key={author.id} value={author.id}>{author.name}</option>
-        )
+      )
       );
     }
-  }
+  };
   const handleSubmit = e => {
     e.preventDefault();
     props.addBookMutation({
@@ -25,9 +25,9 @@ function AddBook(props) {
         genre,
         authorId
       },
-      refetchQueries: [{ query: getBooksQuery}]
+      refetchQueries: [{ query: getBooksQuery }]
     });
-  }
+  };
   return (
     <form id="add-book" onSubmit={handleSubmit}>
       <div className="field">
@@ -48,7 +48,7 @@ function AddBook(props) {
       <button>+</button>
     </form>
   );
-}
+};
 
 export default compose(
   graphql(getAuthorsQuery, { name: "getAuthorsQuery" }),

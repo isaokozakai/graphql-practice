@@ -14,8 +14,8 @@ function BookList(props) {
       return data.books.map(book => {
         return (
           <li key={book.id} onClick={(e) => {setSelected(book.id)}}>{book.name}</li>
-        )
-      })
+        );
+      });
     }
   };
 
