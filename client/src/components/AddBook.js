@@ -13,8 +13,7 @@ function AddBook(props) {
     } else {
       return data.authors.map(author => (
         <option key={author.id} value={author.id}>{author.name}</option>
-      )
-      );
+      ));
     }
   };
   const handleSubmit = e => {
